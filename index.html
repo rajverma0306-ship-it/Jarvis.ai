@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Doorstep smartphone repair and software flashing in India. Inspection @ ₹20. Powered by Verma Brothers."><meta property="og:title" content="Mobile On The Way | Powered by Verma Brothers"><meta property="og:description" content="Phone repair at your doorstep. Clear prices, certified technicians."><title>Mobile On The Way | Powered by Verma Brothers</title>
+<style>
+:root{--bg:#f8fafc;--card:#fff;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0;--navy:#0f172a;--blue:#2563eb;--green:#059669;--tint:#eff6ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--card:#131c2e;--ink:#e2e8f0;--mut:#94a3b8;--line:#243049;--tint:#172554;--green:#34d399}}
+:root[data-theme="dark"]{--bg:#0b1220;--card:#131c2e;--ink:#e2e8f0;--mut:#94a3b8;--line:#243049;--tint:#172554;--green:#34d399}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:96px}
+button,input{font:inherit;color:inherit}button{cursor:pointer}
+.w{max-width:960px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);color:#fff;padding:10px 0}
+header .w{display:flex;align-items:center;gap:10px}
+.logo{width:36px;height:36px;border-radius:9px;background:var(--blue);display:grid;place-items:center;font-size:20px}
+header b{display:block;font-size:16px}header small{color:#cbd5e1;font-size:12px}
+.hero{background:var(--navy);color:#fff;padding:20px 0 28px}
+.hero h1{font-size:28px;line-height:1.15;margin:0 0 8px;max-width:520px}
+.hero p{color:#cbd5e1;margin:0 0 14px;max-width:480px}
+.badge{display:inline-block;background:rgba(16,185,129,.16);color:#6ee7b7;border:1px solid rgba(52,211,153,.4);border-radius:99px;padding:6px 12px;font-size:13px;font-weight:600}
+.sr{position:relative;margin-top:16px;max-width:620px}
+.sr input{width:100%;border:0;border-radius:12px;padding:13px 14px;font-size:14px;color:#0f172a;background:#fff}
+#sug{position:absolute;left:0;right:0;top:100%;margin-top:6px;background:#fff;color:#0f172a;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);overflow:hidden;z-index:5}
+#sug button{display:flex;justify-content:space-between;width:100%;border:0;background:none;padding:12px 14px;text-align:left}
+#sug button:hover{background:#eff6ff}#sug span{color:#64748b;font-size:12px}
+h2{font-size:18px;margin:26px 0 10px}
+.g{display:grid;gap:10px}.brands{grid-template-columns:repeat(3,1fr)}.models{grid-template-columns:repeat(2,1fr)}
+@media(min-width:700px){.brands{grid-template-columns:repeat(8,1fr)}.models{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:left}
+.card.on{border-color:var(--blue);box-shadow:0 0 0 2px rgba(37,99,235,.3)}
+.brand{text-align:center;font-size:12px;font-weight:600}
+.mono{width:42px;height:42px;border-radius:50%;color:#fff;display:grid;place-items:center;font-weight:700;margin:0 auto 6px}
+.ph{height:140px;border-radius:10px;background:linear-gradient(160deg,var(--line),transparent);display:grid;place-items:center;margin-bottom:8px}
+[hidden]{display:none!important}#mx+.tabs{margin-top:14px}
+.tile{background:var(--card);border-radius:8px;padding:0}
+.pay{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}.pay a{padding:10px 4px;font-size:13px;background:#334155}
+input[readonly]{background:var(--bg)}
+.chips{display:flex;gap:8px;overflow-x:auto;margin-bottom:12px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:6px 14px;white-space:nowrap;font-weight:600;font-size:14px}
+.chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--line);padding:4px;border-radius:12px;margin-bottom:14px}
+.tabs button{border:0;background:none;border-radius:9px;padding:10px;font-weight:700}
+.tabs button.on{background:var(--navy);color:#fff}
+.opt{display:flex;justify-content:space-between;gap:12px;width:100%;margin-bottom:8px}
+.opt:disabled{opacity:.5}.opt b{display:block}.opt small,.mut{color:var(--mut);font-size:12px}
+.price{color:var(--green);font-weight:800;text-align:right}
+.tick{display:block;margin:4px 0 0 auto;width:20px;height:20px;border:1px solid var(--mut);border-radius:5px;text-align:center;line-height:18px;font-size:13px}
+.on .tick{background:var(--blue);border-color:var(--blue);color:#fff}
+h3{font-size:15px;margin:14px 0 8px}
+#bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--card);border-top:1px solid var(--line);padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px))}
+#bar .w{display:flex;justify-content:space-between;align-items:center}
+#bar strong{font-size:22px;color:var(--green);display:block}
+.btn{border:0;border-radius:12px;background:var(--blue);color:#fff;font-weight:700;padding:12px 18px;text-decoration:none;display:inline-block;text-align:center}
+.btn:disabled{opacity:.45;cursor:not-allowed}.btn.g2{background:var(--green)}.btn.full{width:100%}
+#dr{position:fixed;inset:0;z-index:50;background:rgba(15,23,42,.6);display:none;align-items:flex-end;justify-content:center}
+#dr.show{display:flex}
+.sheet{background:var(--card);width:100%;max-width:520px;max-height:92%;overflow:auto;border-radius:18px 18px 0 0;padding:0 16px 20px}
+.sheet header{background:var(--card);color:var(--ink);top:0;display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.sheet header b{font-size:16px}
+.bill{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:14px}
+.bill div{display:flex;justify-content:space-between;gap:10px;margin:4px 0}
+.bill .t{border-top:1px solid var(--line);margin-top:8px;padding-top:8px;font-weight:800}
+label{display:block;font-weight:600;font-size:14px;margin-bottom:10px}
+label input{display:block;width:100%;margin-top:4px;border:1px solid var(--line);background:var(--card);border-radius:9px;padding:10px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#err{background:#fef2f2;color:#b91c1c;border-radius:9px;padding:10px;margin:10px 0;display:none;font-size:14px}
+.steps{list-style:none;padding:0;margin:14px 0;display:grid;gap:12px}
+.steps li{display:grid;gap:6px}
+.x{border:0;background:none;font-size:22px}
+.lg{display:grid;place-items:center;height:42px;min-width:42px;font-weight:800;line-height:1;margin:0 auto 6px}
+.lg span{display:block}
+</style>
+</head>
+<body>
+<header><div class="w"><svg class="logo" style="background:none;width:40px;height:40px" viewBox="0 0 48 48" role="img" aria-label="Mobile On The Way logo"><defs><linearGradient id="lgb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient></defs><rect width="48" height="48" rx="12" fill="url(#lgb)"/><path d="M6 20h9M9 26h6M6 32h9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".85"/><rect x="19" y="9" width="17" height="30" rx="4" fill="#fff"/><rect x="21.5" y="13" width="12" height="20" rx="1.5" fill="#1e3a8a"/><circle cx="27.5" cy="23" r="4.2" fill="#10b981"/><path d="M25.6 23.2l1.5 1.5 2.7-3" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Mobile On The Way</b><small>Powered by Verma Brothers</small></div></div></header>
+
+<section class="hero"><div class="w">
+  <h1>Phone repair that comes to your door.</h1>
+  <p>Screens, batteries, unbricking and FRP unlock at your doorstep, with clear prices up front.</p>
+  <span class="badge">Doorstep Inspection &amp; Diagnostic @ ₹20 | Certified Verma Brothers Technicians</span>
+  <div class="sr">
+    <input id="q" autocomplete="off" aria-label="Search your smartphone" placeholder="Search your smartphone (e.g., iPhone 13, Redmi Note 12, iQOO Neo 6, Samsung M34)...">
+    <div id="sug" hidden></div>
+  </div>
+</div></section>
+
+<main class="w">
+  <h2>Choose your brand</h2><div id="brands" class="g brands"></div>
+  <div id="models"></div>
+  <div id="matrix"></div>
+</main>
+
+<div id="bar" hidden><div class="w"><div><span class="mut" id="cnt"></span><strong id="tot"></strong></div><button class="btn" id="rb" data-a="open" disabled>Select a repair</button></div></div>
+<div id="dr"><div class="sheet" id="sheet"></div></div>
+
+<script>
+// ====== OWNER SETTINGS ======
+const OWNER_WA = "918279480070";      // WhatsApp: +91 82794 80070
+const OWNER_UPI = "8279480070@fam";   // FamX UPI ID: money goes straight to the bank
+// ======================================================
+const VISIT = 20;
+const $ = s => document.querySelector(s);
+const inr = n => "₹" + n.toLocaleString("en-IN");
+const esc = t => String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const T = (t, fg, bg, o = {}) => { const w = o.w || 96; return `<svg viewBox="0 0 ${w} 40" width="${w * 0.8}" height="32" role="img" aria-label="${t}"><rect width="${w}" height="40" rx="${o.r ?? 8}" fill="${bg}"/><text x="${w / 2}" y="${o.y || 26}" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="${o.fw || 800}" font-size="${o.fs || 14}" letter-spacing="${o.ls || 0}" font-style="${o.it || "normal"}" fill="${fg}">${t}</text></svg>`; };
+const BR = [
+["apple","Apple",`<svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" aria-label="Apple"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>`],
+["xiaomi","Xiaomi / Redmi / POCO",T("mi","#fff","#ff6900",{w:40,r:10,fs:22,y:28})],
+["samsung","Samsung",T("SAMSUNG","#fff","#1428a0",{r:20,fs:11,ls:1.6,y:24})],
+["realme","Realme",T("realme","#ffc915","#111",{fs:16})],
+["vivo","Vivo / iQOO",T("vivo","#415fff","#e0e7ff",{fs:20,it:"italic"})],
+["oneplus","OnePlus",T("1+","#fff","#f5010c",{w:40,r:10,fs:22,y:28})],
+["motorola","Motorola",T("motorola","#fff","#0b3d91",{fs:12,fw:700})],
+["oppo","Oppo",T("OPPO","#fff","#0a8f4f",{fs:15,ls:1.5})],
+["nothing","Nothing / CMF",T("NOTHING","#fff","#000",{fs:11,ls:2.4,fw:700})],
+["google","Google Pixel",T("Pixel","#4285f4","#fff",{fs:17,fw:700})],
+["infinix","Infinix",T("Infinix","#fff","#00a884",{fs:14})],
+["tecno","Tecno",T("TECNO","#fff","#0055d4",{fs:14,ls:1.4})],
+["lava","Lava",T("LAVA","#fff","#e11d2e",{fs:15,ls:2})],
+["aiplus","AI+",T("AI+","#fff","#6d28d9",{fs:18})],
+["itel","itel",T("itel","#fff","#e60012",{fs:18})]];
+const logo = k => BR.find(b => b[0] === k)[2];
+const PAL = [["#0f172a","#334155"],["#38bdf8","#1e3a8a"],["#a78bfa","#4c1d95"],["#f472b6","#9d174d"],["#34d399","#065f46"],["#fbbf24","#92400e"],["#e2e8f0","#94a3b8"],["#1f2937","#000000"]];
+function layout(m){
+  const b = m[1], n = m[3], g = m[7];
+  if (b === "apple") return /Air|17/.test(n) ? "bar" : /Pro/.test(n) ? "tri" : /16e|SE/.test(n) ? "one" : /16/.test(n) ? "pill" : "dia";
+  if (b === "samsung") return /Ultra/.test(n) ? "v4" : /Flip/.test(n) ? "flip" : /Fold/.test(n) ? "tri" : g >= 3 ? "v3" : "v2";
+  if (b === "google") return "bar";
+  if (b === "nothing") return "glyph";
+  if (b === "oneplus") return /Nord/.test(n) ? "pill" : "ring";
+  if (b === "xiaomi") return g >= 4 ? "ring" : "sq2";
+  if (b === "vivo") return /iQOO/.test(n) ? (g >= 3 ? "ring" : "sq2") : /X\d/.test(n) ? "ring" : "pill";
+  if (b === "realme") return /GT|Pro/.test(n) ? "ring" : /Realme C/.test(n) ? "one" : "sq2";
+  if (b === "motorola") return /Razr/.test(n) ? "flip" : /Edge/.test(n) ? "pill" : "sq2";
+  if (b === "oppo") return /Find/.test(n) ? "ring" : /Reno/.test(n) ? "pill" : "sq2";
+  return "sq2";
+}
+function phone(m){
+  const h = [...m[0]].reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7), p = PAL[Math.abs(h) % PAL.length], b = m[1], id = "p" + Math.abs(h);
+  const lens = (x, y, r = 5) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#0b0f19" stroke="#64748b" stroke-width="1.2"/><circle cx="${x}" cy="${y}" r="${r / 2.6}" fill="#1e3a8a"/>`;
+  const L = layout(m), isq = m[1] === "vivo" && /iQOO/.test(m[3]);
+  const C = {
+    tri: `<rect x="14" y="10" width="32" height="32" rx="9" fill="#ffffff26" stroke="#ffffff40"/>${lens(24,19)}${lens(24,33)}${lens(37,26)}<circle cx="38" cy="15" r="1.6" fill="#0b0f19"/>`,
+    dia: `<rect x="14" y="10" width="30" height="30" rx="9" fill="#ffffff26" stroke="#ffffff40"/>${lens(23,19)}${lens(35,31)}`,
+    one: `<rect x="14" y="10" width="20" height="20" rx="7" fill="#ffffff26" stroke="#ffffff40"/>${lens(24,20)}`,
+    pill: `<rect x="13" y="9" width="22" height="46" rx="11" fill="#0b0f19b3"/>${lens(24,20,5)}${lens(24,34,5)}<circle cx="24" cy="46" r="2" fill="#fde68a"/>`,
+    bar: `<rect x="8" y="22" width="64" height="20" rx="6" fill="#0b0f19cc"/>${lens(24,32,6)}${lens(41,32,6)}<circle cx="57" cy="32" r="2.4" fill="#fde68a"/>`,
+    ring: `<circle cx="30" cy="26" r="17" fill="#ffffff26" stroke="#ffffff55" stroke-width="1.5"/>${lens(24,21,4.6)}${lens(37,21,4.6)}${lens(30,33,4.6)}`,
+    v2: lens(22,18) + lens(22,32),
+    v3: lens(22,18) + lens(22,32) + lens(22,46),
+    v4: lens(22,16) + lens(22,29) + lens(22,42) + lens(22,55),
+    flip: `<rect x="12" y="9" width="26" height="24" rx="7" fill="#0b0f19"/>${lens(21,17,4)}${lens(21,27,4)}`,
+    glyph: `<rect x="8" y="5" width="64" height="140" rx="10" fill="#e5e7eb55"/><circle cx="24" cy="24" r="9" fill="none" stroke="#fff" stroke-width="1.6"/>${lens(24,24,5)}${lens(24,44,5)}<path d="M40 14v50M44 14v50" stroke="#fff" stroke-width="1.2" opacity=".7"/>`,
+    sq2: `<rect x="14" y="10" width="28" height="30" rx="8" fill="#0b0f19b3"/>${lens(23,19,4.8)}${lens(23,31,4.8)}<circle cx="34" cy="16" r="2" fill="#fde68a"/>`
+  };
+  const cam = C[L] + (isq ? '<rect x="8" y="108" width="64" height="3" fill="#2563eb"/><rect x="8" y="112" width="64" height="3" fill="#e11d48"/>' : "");
+  return `<svg viewBox="0 0 80 150" width="66" height="124" role="img" aria-label="${m[3]}"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p[0]}"/><stop offset="1" stop-color="${p[1]}"/></linearGradient></defs><rect x="6" y="3" width="68" height="144" rx="12" fill="#0b0f19"/><rect x="8" y="5" width="64" height="140" rx="10" fill="url(#${id})"/>${cam}<text x="40" y="130" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="#ffffffaa">${b === "apple" ? "" : m[3].split(" ")[0].toUpperCase()}</text></svg>`;
+}
+const PRICE = [ // [display: budget, OLED, original], [battery, port, camera, speaker, back glass]. 0-5 Android by segment, 6-11 iPhone by generation
+[[699,1199,1699],[499,349,249,199,499]],[[999,1799,2799],[799,499,349,299,699]],[[1499,2799,4299],[1099,649,499,379,999]],
+[[2199,3999,6299],[1399,799,649,449,1299]],[[3499,6499,10999],[1899,999,1099,699,2499]],[[5499,10499,18999],[2499,1499,1799,999,3999]],
+[[1799,3499,5999],[1999,1199,999,799,2499]],[[2499,4999,9499],[2399,1399,1199,899,2999]],[[2999,5999,11499],[2799,1599,1299,999,3499]],
+[[3999,7499,13999],[3299,1799,1499,1199,4499]],[[5499,9999,16999],[3999,1999,1799,1299,5499]],[[6999,12999,21999],[4499,2299,2499,1499,6999]]];
+// @brand|name prefix, #series, then: segment|year|models
+const RAW = `
+@apple|iPhone
+#iPhone 17
+11|2025|17 Pro Max,17 Pro,Air
+10|2025|17
+8|2025|16e
+#iPhone 16
+11|2024|16 Pro Max,16 Pro
+10|2024|16 Plus,16
+#iPhone 15
+10|2023|15 Pro Max,15 Pro
+9|2023|15 Plus,15
+#iPhone 14
+9|2022|14 Pro Max,14 Pro
+8|2022|14 Plus,14,SE (3rd gen)
+#iPhone 13
+8|2021|13 Pro Max,13 Pro
+7|2021|13,13 mini
+#iPhone 12
+8|2020|12 Pro Max,12 Pro
+7|2020|12,12 mini,SE (2nd gen)
+#iPhone 11
+6|2019|11 Pro Max,11 Pro,11
+@samsung|Samsung Galaxy
+#S-Series
+5|2026|S26 Ultra
+4|2026|S26+,S26
+5|2025|S25 Ultra
+4|2025|S25+,S25,S25 Edge
+3|2025|S25 FE
+5|2024|S24 Ultra
+4|2024|S24+,S24
+3|2024|S24 FE
+5|2023|S23 Ultra
+4|2023|S23+,S23
+3|2023|S23 FE
+5|2022|S22 Ultra
+4|2022|S22+,S22
+5|2021|S21 Ultra
+4|2021|S21+,S21,S21 FE
+5|2020|S20 Ultra
+4|2020|S20+,S20,S20 FE
+#Z Fold / Flip
+5|2025|Z Fold7
+4|2025|Z Flip7,Z Flip7 FE
+5|2024|Z Fold6
+4|2024|Z Flip6
+5|2023|Z Fold5
+4|2023|Z Flip5
+5|2022|Z Fold4
+4|2022|Z Flip4
+5|2021|Z Fold3
+4|2021|Z Flip3
+5|2020|Z Fold2,Z Flip
+#A-Series
+3|2025|A56,A36
+2|2025|A26,A16
+1|2025|A06,A07
+3|2024|A55,A35
+2|2024|A25,A15
+1|2024|A05s,A05
+3|2023|A54,A34
+2|2023|A24,A14
+1|2023|A04
+3|2022|A73,A53,A33
+2|2022|A23,A13
+1|2022|A03,A03 Core
+3|2021|A72,A52,A52s,A32
+2|2021|A22,A12
+1|2021|A02s,A02
+3|2020|A71,A51,A31
+2|2020|A21s,A11
+1|2020|A01
+#M-Series
+2|2025|M36,M16
+1|2025|M06
+2|2024|M55,M35,M15
+1|2024|M05
+2|2023|M54,M34,M14
+1|2023|M04
+2|2022|M53,M33,M23,M13
+2|2021|M52,M32,M22,M12
+1|2021|M02s,M02
+2|2020|M51,M31s,M31,M21
+1|2020|M11,M01
+#F-Series
+2|2024|F55,F15
+2|2023|F54,F34,F14
+2|2022|F23,F13
+2|2021|F62,F42,F22,F12,F02s
+2|2020|F41
+@xiaomi|Xiaomi
+#Xiaomi Flagship
+5|2025|15 Ultra,17 Ultra,17 Pro Max
+4|2025|17 Pro,17,15
+5|2024|14 Ultra
+4|2024|14,14 Civi
+4|2023|13 Pro,13T Pro,13
+3|2023|13T,13 Lite
+4|2022|12 Pro,12
+3|2022|12X,12 Lite
+5|2021|Mi 11 Ultra
+4|2021|Mi 11X Pro,Mi 11X,Mi 11i,11T Pro,11T
+3|2021|Mi 11 Lite,11 Lite NE
+4|2020|Mi 10T Pro,Mi 10T,Mi 10
+3|2020|Mi 10i
+@xiaomi|Redmi Note
+#Redmi Note
+3|2026|15 Pro+,15 Pro
+2|2026|15
+3|2025|14 Pro+
+2|2025|14 Pro,14,14 SE
+3|2024|13 Pro+
+2|2024|13 Pro,13
+3|2023|12 Pro+
+2|2023|12 Pro,12,12 5G
+3|2022|11 Pro+
+2|2022|11 Pro,11S,11T,11
+3|2021|10 Pro Max
+2|2021|10 Pro,10S,10T,10
+3|2020|9 Pro Max
+2|2020|9 Pro,9
+@xiaomi|Redmi
+#Redmi
+1|2025|15,15C,A5,A4
+1|2024|14C,13,13C,A3
+1|2023|12,12C,A2
+1|2022|11 Prime,A1,10A
+1|2021|10 Prime,10,9 Power
+1|2020|9 Prime,9A,9i,9C,9
+@xiaomi|POCO
+#POCO F
+4|2025|F7 Ultra
+3|2025|F7 Pro,F7
+3|2024|F6 Pro,F6
+3|2023|F5 Pro,F5
+3|2022|F4
+3|2021|F3
+3|2020|F2 Pro
+#POCO X
+3|2025|X7 Pro
+2|2025|X7
+3|2024|X6 Pro
+2|2024|X6,X6 Neo
+2|2023|X5 Pro,X5
+2|2022|X4 Pro
+2|2021|X3 Pro,X3 GT
+2|2020|X3,X2
+#POCO M / C
+1|2025|M7 Pro,M7,C71,C75
+1|2024|M6 Plus,M6 Pro,M6,C65,C61
+1|2023|M6 5G,M5,C55,C51,C50
+1|2022|M4 Pro,M4,C31
+1|2021|M3 Pro,M3,C3
+1|2020|M2 Pro,M2
+@realme|Realme
+#Number Series
+3|2026|16 Pro+,16 Pro
+3|2025|15 Pro,14 Pro+
+2|2025|15,15T,14 Pro,14x,14T
+3|2024|13 Pro+,13 Pro,12 Pro+,12 Pro
+2|2024|13+,13,12+,12x,12
+3|2023|11 Pro+,10 Pro+
+2|2023|11 Pro,11,11x,10 Pro,10
+3|2022|9 Pro+
+2|2022|9 Pro,9,9i,9 5G
+2|2021|8 Pro,8,8s,8i
+2|2020|7 Pro,7,7i,6 Pro,6,6i,X7 Pro
+@realme|Realme Narzo
+#Narzo
+2|2025|80 Pro,80x,80
+2|2024|70 Pro,70x,70 Turbo,70
+2|2023|60 Pro,60x,60
+2|2022|50 Pro,50,50A,50i Prime
+2|2021|30 Pro,30A,30
+1|2020|20 Pro,20,20A
+@realme|Realme
+#C-Series
+1|2025|C75,C73,C71
+1|2024|C67,C65,C63,C61
+1|2023|C55,C53,C51,C35,C33
+1|2022|C30,C31,C25Y,C21Y
+1|2021|C25,C25s,C21,C20,C15
+1|2020|C12,C11,C3
+#GT / P-Series
+4|2025|GT 7 Pro,GT 7
+4|2024|GT 6,GT 6T
+4|2022|GT 2 Pro
+3|2022|GT Neo 3,GT Neo 3T
+3|2021|GT Master,GT 5G
+3|2025|P4 Pro,P3 Pro,P3 Ultra
+2|2025|P4,P3,P3x
+3|2024|P2 Pro,P1 Pro
+2|2024|P1
+@vivo|Vivo
+#X-Series
+5|2025|X300 Pro,X300,X200 Pro
+4|2025|X200 FE,X200
+5|2024|X100 Pro
+4|2024|X100
+4|2022|X90 Pro,X80 Pro,X80
+4|2021|X70 Pro+,X70 Pro,X60 Pro+,X60 Pro,X60
+4|2020|X50 Pro,X50
+#V-Series
+3|2025|V60,V50
+2|2025|V60e,V50e
+3|2024|V40 Pro,V40,V30 Pro,V30
+2|2024|V40e,V30e
+3|2023|V29 Pro,V29,V27 Pro,V27
+2|2023|V29e,V27e
+3|2022|V25 Pro,V25,V23 Pro,V23
+2|2022|V25e,V23e
+3|2021|V21,V20 Pro,V20
+2|2021|V21e,V20 SE
+3|2020|V19,V17
+#T-Series
+3|2025|T4 Ultra,T4 Pro,T4
+2|2025|T4x,T4R,T4 Lite
+3|2024|T3 Ultra,T3 Pro,T3
+2|2024|T3x,T3 Lite
+2|2023|T2 Pro,T2,T2x
+2|2022|T1 Pro,T1,T1x
+#Y-Series
+2|2025|Y400 Pro,Y400,Y300 Plus
+1|2025|Y39,Y29,Y19
+1|2024|Y58,Y28,Y18,Y200e,Y200,Y100
+1|2023|Y56,Y36,Y27,Y17s
+1|2022|Y75,Y33s,Y22,Y16
+1|2021|Y73,Y53s,Y51,Y31,Y21,Y12s
+1|2020|Y30,Y20,Y12,Y50
+@vivo|iQOO
+#iQOO Flagship
+5|2025|15
+4|2024|13,12
+4|2023|11
+4|2022|9 Pro,9,9 SE
+3|2021|7 Legend,7
+3|2020|3
+#iQOO Neo
+3|2025|Neo 10,Neo 10R
+3|2024|Neo 9 Pro,Neo 9s Pro
+3|2023|Neo 7 Pro,Neo 7,Neo 7 SE
+3|2022|Neo 6,Neo 6 SE
+3|2021|Neo 5,Neo 5s,Neo 5 SE
+#iQOO Z-Series
+2|2025|Z10,Z10x,Z10R,Z10 Lite
+2|2024|Z9s Pro,Z9s,Z9,Z9x,Z9 Lite,Z9 Turbo
+2|2023|Z7 Pro,Z7,Z7s,Z7x,Z6 Lite
+2|2022|Z6 Pro,Z6,Z6x,Z5,Z5x
+2|2021|Z3
+2|2020|Z1x,Z1
+@oneplus|OnePlus
+#OnePlus Flagship
+5|2025|15,13,13s
+4|2025|15R,13R
+5|2024|12
+4|2024|12R
+5|2023|Open
+4|2023|11,11R
+4|2022|10 Pro,10T,10R
+4|2021|9 Pro,9,9R,9RT
+4|2020|8T,8 Pro,8
+@oneplus|OnePlus Nord
+#OnePlus Nord
+3|2025|5,CE5
+3|2024|4,CE4,CE4 Lite
+3|2023|3,CE3,CE3 Lite,N30
+3|2022|2T,CE 2 Lite,CE 2
+3|2021|2,CE
+2|2020|N10,N100
+@motorola|Motorola
+#Edge Series
+4|2024|Edge 50 Ultra
+3|2025|Edge 60 Pro,Edge 60 Fusion,Edge 60 Stylus,Edge 60
+3|2024|Edge 50 Pro,Edge 50 Fusion,Edge 50 Neo,Edge 50
+3|2023|Edge 40 Pro,Edge 40 Neo,Edge 40
+4|2022|Edge 30 Ultra
+3|2022|Edge 30 Fusion,Edge 30 Pro,Edge 30 Neo,Edge 30
+3|2021|Edge 20 Pro,Edge 20 Fusion,Edge 20
+4|2020|Edge+,Edge
+#Razr (Foldable)
+5|2025|Razr 60 Ultra
+4|2025|Razr 60
+5|2024|Razr 50 Ultra
+4|2024|Razr 50
+5|2023|Razr 40 Ultra
+4|2023|Razr 40
+4|2022|Razr 2022
+#Moto G
+2|2025|Moto G96,Moto G86 Power,Moto G56
+1|2025|Moto G15,Moto G05
+2|2024|Moto G85,Moto G64,Moto G45
+1|2024|Moto G35,Moto G34,Moto G24 Power,Moto G14,Moto G04
+2|2023|Moto G84,Moto G73,Moto G54
+1|2023|Moto G23,Moto G13
+2|2022|Moto G82,Moto G72,Moto G71,Moto G62,Moto G52,Moto G42,Moto G32,Moto G31,Moto G22
+2|2021|Moto G100,Moto G60,Moto G51,Moto G40 Fusion,Moto G30,Moto G10 Power
+2|2020|Moto G9 Power,Moto G9 Plus,Moto G9,Moto G8 Power
+#Moto E & One
+1|2022|Moto E32,Moto E22
+1|2021|Moto E40,Moto E30,Moto E20
+1|2020|Moto E7 Power,Moto E7 Plus
+2|2020|One Fusion+,One Hyper
+@oppo|Oppo
+#Reno
+3|2025|Reno14 Pro,Reno14,Reno13 Pro,Reno13
+3|2024|Reno12 Pro,Reno12,Reno11 Pro,Reno11
+3|2023|Reno10 Pro+,Reno10 Pro,Reno10
+3|2022|Reno8 Pro,Reno8,Reno8 T,Reno7 Pro,Reno7
+3|2021|Reno6 Pro,Reno6,Reno5 Pro,Reno5
+3|2020|Reno4 Pro,Reno4,Reno3 Pro
+#F-Series
+2|2025|F29 Pro,F29
+2|2024|F27 Pro+,F27
+2|2023|F25 Pro,F23
+2|2022|F21 Pro,F21s Pro
+2|2021|F19 Pro+,F19 Pro,F19,F19s
+2|2020|F17 Pro,F17
+#A-Series
+1|2025|A5 Pro,A5x,A5,A3 Pro,A3x
+1|2024|A79,A78,A60,A59,A38,A18
+1|2023|A58,A17
+1|2022|A96,A77,A76,A57
+1|2021|A74,A54,A53,A15
+1|2020|A31,A12,A9
+#Find
+5|2025|Find X8 Pro,Find X8,Find N5
+5|2023|Find N3,Find N3 Flip
+5|2022|Find X5 Pro
+5|2021|Find X3 Pro
+@nothing|Nothing
+#Nothing Phone
+3|2025|Phone (3),Phone (3a) Pro,Phone (3a)
+3|2024|Phone (2a) Plus,Phone (2a)
+4|2023|Phone (2)
+3|2022|Phone (1)
+@nothing|CMF by Nothing
+#CMF
+2|2025|Phone 2 Pro
+2|2024|Phone 1
+@google|Google
+#Pixel
+5|2025|Pixel 10 Pro XL,Pixel 10 Pro,Pixel 10 Pro Fold
+4|2025|Pixel 10
+3|2025|Pixel 9a
+5|2024|Pixel 9 Pro XL,Pixel 9 Pro,Pixel 9 Pro Fold
+4|2024|Pixel 9
+3|2024|Pixel 8a
+4|2023|Pixel 8 Pro,Pixel 8
+3|2023|Pixel 7a
+4|2022|Pixel 7 Pro,Pixel 7
+3|2022|Pixel 6a
+4|2021|Pixel 6 Pro,Pixel 6
+3|2020|Pixel 5,Pixel 4a
+@infinix|Infinix
+#Note / GT
+2|2025|GT 30 Pro,GT 30,Note 50 Pro+,Note 50x,Note 50s
+2|2024|GT 20 Pro,Note 40 Pro+,Note 40 Pro,Note 40,Note 40x
+2|2023|Note 30 Pro,Note 30,Note 30 VIP
+2|2022|Note 12 Pro,Note 12,Note 11
+#Hot / Smart / Zero
+1|2025|Hot 60i,Hot 60 Pro,Smart 10
+1|2024|Hot 50 Pro+,Hot 50i,Hot 50,Hot 40 Pro,Hot 40i,Smart 9,Smart 8
+2|2023|Zero 30 5G
+1|2023|Hot 30,Hot 30i,Smart 7
+1|2022|Hot 20,Hot 12,Smart 6
+@tecno|Tecno
+#Pova / Camon / Spark
+2|2025|Pova 7 Pro,Pova 7,Pova Slim,Camon 40 Pro,Spark 40 Pro
+1|2025|Spark 40,Spark Go 5G
+2|2024|Pova 6 Pro,Pova 6 Neo,Pova 5 Pro,Camon 30 Pro,Camon 30,Camon 20 Pro,Phantom V Fold
+1|2024|Spark 30 Pro,Spark 30,Spark 20 Pro+,Spark 20 Pro,Spark 20,Spark Go 2024
+1|2023|Spark 10 Pro,Spark 10,Spark 9,Pop 8
+2|2020|Pova
+@lava|Lava
+#Lava
+1|2025|Blaze AMOLED 2,Blaze Dragon,Bold N1,Shark
+2|2024|Agni 3,Blaze X,Yuva 3 Pro,Yuva 3
+2|2023|Agni 2 5G,Blaze 2 5G,Blaze Pro 5G,Storm 5G,Yuva 5G
+@aiplus|AI+
+#AI+
+1|2025|Pulse,Nova 5G
+@itel|itel
+#itel
+1|2025|A95 5G,A90,S25 Ultra,S25,Zeno 20
+1|2024|A70,A60s,P55+,P55 5G,S24
+1|2023|A60,P40+,P40
+`;
+const M = (() => {
+  const out = [], seen = new Set(); let br = "", pre = "", ser = "";
+  RAW.trim().split("\n").forEach(l => {
+    if (l[0] === "@") [br, pre] = l.slice(1).split("|");
+    else if (l[0] === "#") ser = l.slice(1);
+    else { const [sg, yr, names] = l.split("|");
+      names.split(",").forEach(n => {
+        const name = pre + " " + n, id = name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+        if (!seen.has(id)) { seen.add(id); out.push([id, br, ser, name, +yr, PRICE[sg][0], PRICE[sg][1], +sg]); }
+      }); }
+  });
+  return out;
+})();
+
+const TIER = [["First Copy / Budget LCD","Basic touch, budget friendly"],["Premium OLED / OG","In-display fingerprint works, crisp colours"],["100% Original Service Pack","OEM factory sealed, highest brightness"]];
+const EXTRA = [["Battery Replacement","High-capacity cell + health calibration"],["Charging Port / Sub-Board Repair","Fast charging and Type-C fixes"],["Camera Lens Replacement","Rear lens glass or module"],["Speaker Replacement","Loud speaker or earpiece"],["Back Glass Replacement","Laser-cut, colour matched"]];
+// code, name, description, price, minutes, iPhone price (0 = not offered)
+const SW = [
+["frp","FRP Bypass & Pattern / PIN Recovery","Google lock, bootloader, pattern and PIN unlock with data-safety checks.",599,45,1499],
+["flash","Stock ROM Re-flashing","Fixes bootloops, soft and hard bricks, dead-device recovery with official firmware.",799,90,1299],
+["custom","Custom ROM Installation & Tuning","LineageOS, Pixel Experience, Magisk root, thermal tuning and debloating.",1299,150,0],
+["clean","Performance Cleanup & Virus / Spyware Scan","Removes malware and spyware, clears junk, stops battery-draining apps.",299,40,299]];
+
+const s = {b:null, ser:"All", m:null, tab:"hw", t:-1, ex:[], sw:[], slot:"", pay:"upi"};
+const swPrice = c => s.m[1] === "apple" ? c[5] : c[3];
+
+function lines(){
+  const L = [], m = s.m;
+  if (s.t >= 0) L.push(["Display – " + TIER[s.t][0], m[5][s.t]]);
+  s.ex.forEach(i => L.push([EXTRA[i][0], m[6][i]]));
+  s.sw.forEach(code => { const c = SW.find(x => x[0] === code); L.push([c[1], swPrice(c)]); });
+  return L;
+}
+const total = () => lines().reduce((a, l) => a + l[1], 0) + VISIT;
+
+function opt(a, v, title, sub, price, on, dis){
+  return `<button class="card opt ${on ? "on" : ""}" data-a="${a}" data-v="${v}" ${dis ? "disabled" : ""} role="${a === "tier" ? "radio" : "checkbox"}" aria-checked="${on}"><span><b>${title}</b><small>${sub}</small></span>${dis ? "" : `<span class="price">${inr(price)}<i class="tick">${on ? "✓" : ""}</i></span>`}</button>`;
+}
+function renderBrands(){
+  $("#brands").innerHTML = BR.map(b => `<button class="card brand ${s.b === b[0] ? "on" : ""}" data-a="brand" data-v="${b[0]}"><span class="lg">${b[2]}</span>${b[1]}</button>`).join("");
+}
+function renderModels(){
+  if (!s.b) { $("#models").innerHTML = ""; return; }
+  const list = M.filter(m => m[1] === s.b), sers = ["All", ...new Set(list.map(m => m[2]))];
+  const show = list.filter(m => s.ser === "All" || m[2] === s.ser);
+  $("#models").innerHTML = `<h2>${BR.find(b => b[0] === s.b)[1]} models</h2>` + (list.length
+    ? `<div class="chips">${sers.map(x => `<button class="chip ${s.ser === x ? "on" : ""}" data-a="series" data-v="${x}">${x}</button>`).join("")}</div>
+       <div class="g models">${show.map(m => `<button class="card ${s.m && s.m[0] === m[0] ? "on" : ""}" data-a="model" data-v="${m[0]}"><div class="ph">${phone(m)}</div><b>${m[3]}</b><br><span class="mut">Released ${m[4]}</span></button>`).join("")}</div>`
+    : `<p class="card mut">This brand's models are being added. Book the ₹20 inspection on any model and we will quote at your door, or message us on WhatsApp.</p><a class="btn g2" href="https://wa.me/${OWNER_WA}?text=${encodeURIComponent("Hi, I need a repair quote for my " + BR.find(b => b[0] === s.b)[1] + " phone.")}">Ask on WhatsApp</a>`);
+}
+function renderMatrix(){
+  const m = s.m;
+  if (!m) { $("#matrix").innerHTML = ""; $("#bar").hidden = true; return; }
+  let h = `<div id="mx" class="card" style="display:flex;gap:14px;align-items:center;margin-top:24px">${phone(m)}<div><h2 style="margin:0 0 2px">${m[3]}</h2><p class="mut" style="margin:0 0 10px">Released ${m[4]}</p><a class="btn" style="background:#dc2626;padding:9px 14px;font-size:13px" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(m[3] + " official launch trailer")}">▶ Watch launch trailer</a></div></div><div class="tabs" role="tablist"><button class="${s.tab === "hw" ? "on" : ""}" data-a="tab" data-v="hw">🔧 Hardware</button><button class="${s.tab === "sw" ? "on" : ""}" data-a="tab" data-v="sw">⚙️ Software &amp; OS</button></div>`;
+  if (s.tab === "hw") {
+    h += `<h3>Display / screen replacement</h3>` + TIER.map((t, i) => opt("tier", i, t[0], t[1], m[5][i], s.t === i)).join("");
+    h += `<h3>Other repairs</h3>` + EXTRA.map((e, i) => opt("ex", i, e[0], e[1], m[6][i], s.ex.includes(i))).join("");
+  } else {
+    h += SW.map(c => { const p = swPrice(c), off = p === 0;
+      return opt("sw", c[0], c[1], off ? "Not available for iPhone (iOS is locked to Apple firmware)." : `${c[2]} About ${c[4]} min.`, p, s.sw.includes(c[0]), off); }).join("");
+  }
+  h += `<p class="mut">Prices include part and labour. Your only extra charge is the ₹${VISIT} visit fee.</p>`;
+  $("#matrix").innerHTML = h;
+  $("#bar").hidden = false;
+  const n = lines().length, rb = $("#rb");
+  $("#cnt").textContent = n ? `${n} item${n === 1 ? "" : "s"} + ₹${VISIT} visit` : "Pick a repair above";
+  $("#tot").textContent = n ? inr(total()) : "₹0";
+  rb.disabled = !n; rb.textContent = n ? "Review & book" : "Select a repair";
+}
+function billHTML(){
+  const L = lines();
+  return `<div class="bill">${L.length ? "" : `<div class="mut">No repair picked. You can book the ₹20 inspection and we diagnose at your door.</div>`}${L.map(l => `<div><span>${esc(l[0])}</span><b>${inr(l[1])}</b></div>`).join("")}<div class="mut"><span>Doorstep visiting fee</span><span>${inr(VISIT)}</span></div><div class="t"><span>Total payable</span><span class="price">${inr(total())}</span></div><div class="mut">No hidden charges. Final payment only after full testing.</div></div>`;
+}
+function drawerForm(){
+  $("#sheet").innerHTML = `<header><b>Your booking · ${s.m[3]}</b><button class="x" data-a="close" aria-label="Close">×</button></header>${billHTML()}
+  <label>Full name<input id="fn" autocomplete="name"></label>
+  <label>Mobile number<input id="ph" inputmode="numeric" maxlength="10" autocomplete="tel-national"></label>
+  <label>Full address<input id="ad" autocomplete="street-address" placeholder="House no., street, area, city"></label>
+  <div class="two"><label>Landmark<input id="lm" placeholder="Near..."></label><label>Pincode<input id="pc" inputmode="numeric" maxlength="6" autocomplete="postal-code"></label></div>
+  <h3>Time slot</h3><div class="two" id="slots"><button class="card" data-a="slot" data-v="Morning: 9 AM - 1 PM"><b>Morning</b><br><span class="mut">9 AM - 1 PM</span></button><button class="card" data-a="slot" data-v="Evening: 3 PM - 7 PM"><b>Evening</b><br><span class="mut">3 PM - 7 PM</span></button></div>
+  <h3>How would you like to pay?</h3><div class="two" id="pays"><button class="card on" data-a="pay" data-v="upi"><b>Pay now by UPI</b><br><span class="mut">Order first, then pay</span></button><button class="card" data-a="pay" data-v="cod"><b>Pay after service</b><br><span class="mut">Cash/UPI after full testing</span></button></div>
+  <div id="err" role="alert"></div>
+  <button class="btn full" data-a="confirm" style="margin-top:12px">Confirm booking</button>`;
+}
+function confirmBooking(){
+  const v = id => $("#" + id).value.trim(), errs = [];
+  if (v("fn").length < 2) errs.push("Enter your full name.");
+  if (!/^[6-9]\d{9}$/.test(v("ph"))) errs.push("Enter a valid 10-digit mobile number.");
+  if (v("ad").length < 8) errs.push("Enter your full address.");
+  if (!/^[1-9]\d{5}$/.test(v("pc"))) errs.push("Enter a valid 6-digit pincode.");
+  if (!s.slot) errs.push("Choose a time slot.");
+  const e = $("#err");
+  if (errs.length) { e.style.display = "block"; e.innerHTML = errs.map(esc).join("<br>"); return; }
+  const ref = "MOW-" + Math.random().toString(36).slice(2, 8).toUpperCase(), T = total(), online = s.pay === "upi";
+  const msg = [`*New booking ${ref}*`, `Device: ${s.m[3]}`, ...lines().map(l => `- ${l[0]}: ${inr(l[1])}`), `Visit fee: ${inr(VISIT)}`, `*Total: ${inr(T)}*`,
+    `Payment: ${online ? "Will pay Rs " + T + " by UPI right after this message (screenshot to follow)" : "Pay after service"}`, `Name: ${v("fn")}`, `Phone: ${v("ph")}`,
+    `Address: ${v("ad")}${v("lm") ? ", near " + v("lm") : ""} - ${v("pc")}`, `Slot: ${s.slot}`].join("\n");
+  const wa = `https://wa.me/${OWNER_WA}?text=${encodeURIComponent(msg)}`;
+  const q = (o) => Object.entries(o).map(([k, v]) => k + "=" + encodeURIComponent(v)).join("&");
+  const P = q({pa: OWNER_UPI, pn: "Verma Brothers", am: T.toFixed(2), cu: "INR", tn: "Repair " + ref}), upi = "upi://pay?" + P;
+  $("#sheet").innerHTML = `<header><b>Almost done</b><button class="x" data-a="close" aria-label="Close">×</button></header>
+  <p><b>Booking ID ${ref}</b> for ${esc(s.m[3])}, ${esc(s.slot)}. Total ${inr(T)}.</p>
+  <ol class="steps">
+  <li><span><b>Step 1.</b> Send your order to us on WhatsApp first.</span><a class="btn g2" data-a="waSent" target="_blank" rel="noopener" href="${wa}">Send order on WhatsApp</a></li>
+  ${online ? `<li id="pay2" hidden><span><b>Step 2.</b> Now pay ${inr(T)}. Your UPI app opens with our UPI ID and this amount filled in.</span>
+    <a class="btn" target="_blank" rel="noopener" href="${upi}">Pay ${inr(T)} with UPI</a>
+    <div class="pay"><a class="btn" target="_blank" rel="noopener" href="tez://upi/pay?${P}">Google Pay</a><a class="btn" target="_blank" rel="noopener" href="phonepe://pay?${P}">PhonePe</a><a class="btn" target="_blank" rel="noopener" href="paytmmp://pay?${P}">Paytm</a></div>
+    <span class="mut">App did not open? Open any UPI app, choose Pay to UPI ID or Mobile Number, and enter:</span>
+    <input readonly value="${OWNER_UPI}" aria-label="UPI ID" onclick="this.select()"><input readonly value="${OWNER_WA.slice(2)}" aria-label="Mobile number" onclick="this.select()">
+    <span class="mut">Amount ${inr(T)}. Then send the payment screenshot on WhatsApp.</span></li>` : `<li class="mut">Step 2. Pay by cash or UPI after full testing.</li>`}
+  </ol>
+  <p class="mut">Your booking is confirmed once we reply on WhatsApp.</p>`;
+}
+
+const act = {
+  brand: v => { s.b = v; s.ser = "All"; s.m = null; renderBrands(); renderModels(); renderMatrix(); },
+  series: v => { s.ser = v; renderModels(); },
+  model: v => pick(M.find(m => m[0] === v)),
+  tab: v => { s.tab = v; renderMatrix(); },
+  tier: v => { s.t = s.t === +v ? -1 : +v; renderMatrix(); },
+  ex: v => { const i = +v; s.ex = s.ex.includes(i) ? s.ex.filter(x => x !== i) : [...s.ex, i]; renderMatrix(); },
+  sw: v => { s.sw = s.sw.includes(v) ? s.sw.filter(x => x !== v) : [...s.sw, v]; renderMatrix(); },
+  open: () => { if (!lines().length) return; drawerForm(); $("#dr").classList.add("show"); },
+  close: () => $("#dr").classList.remove("show"),
+  slot: (v, el) => { s.slot = v; document.querySelectorAll("#slots .card").forEach(c => c.classList.toggle("on", c === el)); },
+  pay: (v, el) => { s.pay = v; document.querySelectorAll("#pays .card").forEach(c => c.classList.toggle("on", c === el)); },
+  confirm: confirmBooking,
+  waSent: () => { const e = $("#pay2"); if (e) e.hidden = false; }
+};
+function pick(m){
+  s.b = m[1]; s.m = m; s.t = -1; s.ex = []; s.sw = []; s.tab = "hw"; s.slot = "";
+  $("#q").value = ""; $("#sug").hidden = true;
+  renderBrands(); renderModels(); renderMatrix();
+  requestAnimationFrame(() => setTimeout(() => {
+    const y = $("#mx").getBoundingClientRect().top + window.scrollY - $("header").offsetHeight - 8;
+    window.scrollTo({top: y, behavior: "smooth"});
+  }, 60));
+}
+document.addEventListener("click", e => {
+  const el = e.target.closest("[data-a]");
+  if (el) act[el.dataset.a](el.dataset.v, el);
+  else if (!e.target.closest(".sr")) $("#sug").hidden = true;
+});
+$("#q").addEventListener("input", e => {
+  const q = e.target.value.trim().toLowerCase(), box = $("#sug");
+  if (q.length < 2) { box.hidden = true; return; }
+  const r = M.filter(m => m[3].toLowerCase().includes(q)).slice(0, 8);
+  box.innerHTML = r.length ? r.map(m => `<button data-a="model" data-v="${m[0]}">${m[3]}<span>${BR.find(b => b[0] === m[1])[1]} · ${m[4]}</span></button>`).join("") : `<button disabled>No match yet. Pick your brand below.</button>`;
+  box.hidden = false;
+});
+renderBrands();
+</script>
+</body>
+</html>
