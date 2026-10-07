@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JARVIS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050b18">
+<meta name="mobile-web-app-capable" content="yes">
+<style>
+:root{--bg:#050b18;--card:#0d1a30;--ac:#22d3ee;--tx:#e6f1ff;--mu:#7f93b3;--me:#1e3a8a;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+header{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid #16294a}
+.orb{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#a5f3fc,var(--ac) 45%,#0e7490);box-shadow:0 0 14px var(--ac)}
+.orb.on{animation:p 1s infinite}
+@keyframes p{50%{transform:scale(1.25);box-shadow:0 0 30px var(--ac)}}
+h1{font-size:18px;letter-spacing:3px;margin:0;flex:1}
+.tabs{display:flex;gap:6px}
+.tabs button{background:none;border:1px solid #16294a;color:var(--mu);border-radius:14px;padding:5px 9px;font-size:12px}
+.tabs button.a{color:var(--ac);border-color:var(--ac)}
+main{flex:1;overflow-y:auto;padding:12px 14px}
+.m{max-width:85%;padding:9px 12px;border-radius:14px;margin:6px 0;line-height:1.45;font-size:15px;white-space:pre-wrap}
+.u{background:var(--me);margin-left:auto}
+.j{background:var(--card);border:1px solid #16294a}
+.sys{color:var(--mu);font-size:13px;text-align:center;margin:8px 0}
+.item{background:var(--card);border-radius:10px;padding:10px;margin:6px 0;display:flex;justify-content:space-between;gap:8px;font-size:14px}
+.item button{background:none;border:none;color:#f87171;font-size:16px}
+footer{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #16294a;align-items:center}
+input,select{background:var(--card);border:1px solid #16294a;color:var(--tx);border-radius:20px;padding:11px 14px;font-size:15px;min-width:0}
+footer input{flex:1}
+.b{border:none;border-radius:50%;width:46px;height:46px;font-size:18px;background:var(--ac);color:#04212a;flex:none}
+.b.rec{background:#ef4444;color:#fff;animation:p 1s infinite}
+.lang{width:46px;height:46px;border-radius:50%;border:1px solid var(--ac);background:none;color:var(--ac);font-size:13px;flex:none}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.chips button,.btn{background:var(--card);border:1px solid #16294a;color:var(--tx);border-radius:14px;padding:7px 11px;font-size:13px}
+label{display:block;font-size:13px;color:var(--mu);margin:12px 0 4px}
+.set input{width:100%;border-radius:10px}
+.btn.p{background:var(--ac);color:#04212a;border:none;margin-top:14px}
+</style>
+</head>
+<body>
+<header><div class="orb" id="orb"></div><h1>JARVIS</h1>
+<div class="tabs"><button class="a" data-t="chat">Chat</button><button data-t="tasks">Tasks</button><button data-t="notes">Notes</button><button data-t="set">⚙</button></div></header>
+<main id="main"></main>
+<footer id="foot">
+<button class="lang" id="lang">EN</button>
+<input id="inp" placeholder="Ask anything / कुछ भी पूछो" autocomplete="off">
+<button class="b" id="mic">🎤</button><button class="b" id="send">➤</button>
+</footer>
+<script>
+const $=id=>document.getElementById(id);
+const S={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let tasks=S.get('j_tasks',[]),notes=S.get('j_notes',[]),cfg=S.get('j_cfg',{key:'',model:'gemini-2.5-flash',speak:true}),micLang=S.get('j_lang','en-IN');
+let contents=[],msgs=[],tab='chat',busy=false,rec=null;
+const main=$('main');
+const save=()=>{S.set('j_tasks',tasks);S.set('j_notes',notes)};
+$('lang').textContent=micLang==='hi-IN'?'हि':'EN';
+$('lang').onclick=()=>{micLang=micLang==='hi-IN'?'en-IN':'hi-IN';S.set('j_lang',micLang);$('lang').textContent=micLang==='hi-IN'?'हि':'EN'};
+
+function render(){
+  main.innerHTML='';
+  $('foot').style.display=tab==='chat'?'flex':'none';
+  if(tab==='chat'){
+    if(!msgs.length){
+      main.innerHTML='<div class="sys">Hello! I am JARVIS. Type or tap 🎤 and speak in English or Hindi.<br>Use the EN/हि button to pick your mic language.</div><div class="chips" id="chips"></div>';
+      if(!cfg.key)main.innerHTML+='<div class="sys">⚙ First open Settings and paste your free Gemini API key.</div>';
+      ['What is the date and time?','Add task: submit project tomorrow','Show my tasks','मुझे एक जोक सुनाओ','Remind me to drink water in 2 minutes'].forEach(t=>{const b=document.createElement('button');b.textContent=t;b.onclick=()=>ask(t);$('chips').appendChild(b)});
+    }
+    msgs.forEach(m=>{const d=document.createElement('div');d.className='m '+(m.r==='u'?'u':'j');d.textContent=m.t;main.appendChild(d)});
+  } else if(tab==='set'){
+    main.innerHTML='<div class="set"><label>Gemini API key (free from aistudio.google.com/apikey)</label><input id="k" type="password" placeholder="AIza..."><label>Model</label><input id="md"><label><input type="checkbox" id="sp" style="width:auto"> Speak replies aloud</label><button class="btn p" id="sv">Save</button></div>';
+    $('k').value=cfg.key;$('md').value=cfg.model;$('sp').checked=cfg.speak;
+    $('sv').onclick=()=>{cfg={key:$('k').value.trim(),model:$('md').value.trim()||'gemini-2.5-flash',speak:$('sp').checked};S.set('j_cfg',cfg);tab='chat';syncTabs();render()};
+  } else {
+    const list=tab==='tasks'?tasks:notes;
+    if(!list.length)main.innerHTML='<div class="sys">Nothing here yet. Ask JARVIS to add something.</div>';
+    list.forEach((x,i)=>{const d=document.createElement('div');d.className='item';const s=document.createElement('span');s.textContent=(x.done?'✅ ':'')+x.text;const b=document.createElement('button');b.textContent='🗑';b.onclick=()=>{list.splice(i,1);save();render()};d.append(s,b);main.appendChild(d)});
+  }
+  main.scrollTop=main.scrollHeight;
+}
+function syncTabs(){document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('a',x.dataset.t===tab))}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{tab=b.dataset.t;syncTabs();render()});
+
+function speak(t){
+  if(!cfg.speak||!window.speechSynthesis)return;
+  try{speechSynthesis.cancel();const hi=/[\u0900-\u097F]/.test(t);const u=new SpeechSynthesisUtterance(t);u.lang=hi?'hi-IN':'en-IN';const v=speechSynthesis.getVoices().find(v=>v.lang.replace('_','-').startsWith(hi?'hi':'en'));if(v)u.voice=v;u.onstart=()=>$('orb').classList.add('on');u.onend=()=>$('orb').classList.remove('on');speechSynthesis.speak(u)}catch(e){}
+}
+
+const O='OBJECT',T='STRING';
+const decl=[
+ {name:'get_datetime',description:'Get the current date, day and time'},
+ {name:'add_task',description:'Add a task to the user task list',parameters:{type:O,properties:{text:{type:T}},required:['text']}},
+ {name:'list_tasks',description:'List all tasks'},
+ {name:'complete_task',description:'Mark a task done by its number (starting from 1)',parameters:{type:O,properties:{number:{type:'NUMBER'}},required:['number']}},
+ {name:'add_note',description:'Save a note',parameters:{type:O,properties:{text:{type:T}},required:['text']}},
+ {name:'set_reminder',description:'Set a reminder after some minutes (works while this page stays open)',parameters:{type:O,properties:{minutes:{type:'NUMBER'},text:{type:T}},required:['minutes','text']}}
+];
+const impl={
+ get_datetime:()=>new Date().toLocaleString('en-IN',{dateStyle:'full',timeStyle:'short'}),
+ add_task:a=>{tasks.push({text:a.text,done:false});save();return 'added'},
+ list_tasks:()=>tasks.length?tasks.map((t,i)=>(i+1)+'. '+t.text+(t.done?' (done)':'')).join('\n'):'no tasks',
+ complete_task:a=>{const t=tasks[a.number-1];if(!t)return 'not found';t.done=true;save();return 'marked done'},
+ add_note:a=>{notes.push({text:a.text});save();return 'note saved'},
+ set_reminder:a=>{setTimeout(()=>{const m='⏰ Reminder: '+a.text;msgs.push({r:'j',t:m});speak(m);try{navigator.vibrate&&navigator.vibrate([300,100,300])}catch(e){}render()},a.minutes*60000);return 'reminder set for '+a.minutes+' minutes'}
+};
+const SYS='You are JARVIS, a friendly personal voice assistant for a college student. ALWAYS reply in the same language the user just used: English reply for English, Hindi (Devanagari) reply for Hindi or Hinglish. Keep replies short and conversational because they are read aloud; no markdown or emojis. Use the tools for tasks, notes, time and reminders. Email and calendar are not connected yet; say so if asked.';
+
+async function gem(){
+  const url='https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(cfg.model)+':generateContent';
+  const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':cfg.key},body:JSON.stringify({systemInstruction:{parts:[{text:SYS}]},contents,tools:[{functionDeclarations:decl}]})});
+  const j=await r.json();
+  if(!r.ok)throw new Error(j.error&&j.error.message||('HTTP '+r.status));
+  const c=j.candidates&&j.candidates[0]&&j.candidates[0].content;
+  if(!c||!c.parts)throw new Error('Empty reply');
+  return c;
+}
+async function ask(text){
+  text=(text||'').trim();if(!text||busy)return;
+  if(tab!=='chat'){tab='chat';syncTabs()}
+  if(!cfg.key){msgs.push({r:'u',t:text},{r:'j',t:'Please add your Gemini API key in ⚙ Settings first.'});render();return}
+  busy=true;$('inp').value='';
+  msgs.push({r:'u',t:text});const out={r:'j',t:'…'};msgs.push(out);render();
+  contents.push({role:'user',parts:[{text}]});
+  try{
+    let final='';
+    for(let i=0;i<5;i++){
+      const c=await gem();contents.push({role:'model',parts:c.parts});
+      const calls=c.parts.filter(p=>p.functionCall);
+      if(!calls.length){final=c.parts.map(p=>p.text||'').join('').trim();break}
+      contents.push({role:'user',parts:calls.map(p=>{let res;try{res=impl[p.functionCall.name](p.functionCall.args||{})}catch(e){res='error'}return{functionResponse:{name:p.functionCall.name,response:{result:String(res)}}}})});
+    }
+    out.t=final||'Done.';speak(out.t);
+    if(contents.length>24)contents=contents.slice(-16);
+  }catch(e){out.t='Error: '+e.message;contents.pop()}
+  busy=false;render();
+}
+$('send').onclick=()=>ask($('inp').value);
+$('inp').addEventListener('keydown',e=>{if(e.key==='Enter')ask($('inp').value)});
+
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+$('mic').onclick=()=>{
+  if(!SR){alert('Voice input needs Chrome on Android. You can also use the keyboard mic.');return}
+  if(rec){rec.stop();return}
+  try{speechSynthesis.cancel()}catch(e){}
+  rec=new SR();rec.lang=micLang;rec.interimResults=false;
+  rec.onstart=()=>{$('mic').classList.add('rec');$('orb').classList.add('on')};
+  rec.onresult=e=>ask(e.results[0][0].transcript);
+  rec.onerror=e=>{msgs.push({r:'j',t:'Mic error: '+e.error+(e.error==='not-allowed'?' (allow microphone for this site)':'')});render()};
+  rec.onend=()=>{rec=null;$('mic').classList.remove('rec');$('orb').classList.remove('on')};
+  rec.start();
+};
+render();
+</script>
+</body>
+</html>
